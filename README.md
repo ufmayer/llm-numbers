@@ -32,7 +32,7 @@ Prices are of course subject to change, but given how expensive LLMs are to oper
 
 ### ~50:1 -- Cost Ratio of GPT-4 to GPT-3.5 Turbo[^3] 
 
-What this means is that for many practical applications, it’s much better to use GPT-3.5 Turbo for things like generation and then use that data to fine tune a smaller model. It is roughly 50 times cheaper to use GPT-3.5-Turbo than GPT-4 (the “roughly” is because GPT-4 charges differently for the prompt and the generated output)  – so you really need to check on how far you can get with GPT-3.5-Turbo. GPT-3.5-Turbo is more than enough for tasks like summarization for example. 
+What this means is that for many practical applications, it’s much better to use GPT-4 for things like generating high quality fine tuning data, or for automated evaluation of other models -- things you might only do once instead of it living in the middle of your inference cycle. It is roughly 50 times cheaper to use GPT-3.5-Turbo than GPT-4 (the “roughly” is because GPT-4 charges differently for the prompt and the generated output)  – so you really need to check on how far you can get with GPT-3.5-Turbo. GPT-3.5-Turbo is more than enough for tasks like summarization for example. 
 
 
 ### 5:1 -- Cost Ratio of generation of text using GPT-3.5-Turbo vs OpenAI embedding 
@@ -44,7 +44,7 @@ This means it is way cheaper to look something up in a vector store than to ask 
 
 > Note: this number is sensitive to load and embedding batch size, so please consider this approximate. 
 
-In our blog post, we noted that using a g4dn.4xlarge (on-demand price: $1.20/hr) we were able to embed at about 9000 tokens per second using HuggingFace’s SentenceTransformers (which are pretty much as good as OpenAI’s embeddings). Doing some basic math of that rate and that node type indicates it is considerably cheaper (factor of 10 cheaper) to self-host embeddings (and that is before you start to think about things like ingress and egress fees). 
+In our blog post, we noted that using a g4dn.4xlarge (on-demand price: $1.20/hr) we were able to embed at about 9000 tokens per second using Hugging Face’s SentenceTransformers (which are pretty much as good as OpenAI’s embeddings). Doing some basic math of that rate and that node type indicates it is considerably cheaper (factor of 10 cheaper) to self-host embeddings (and that is before you start to think about things like ingress and egress fees). 
 
 
 ### 6:1 -- Cost Ratio of OpenAI fine tuned vs base model queries
